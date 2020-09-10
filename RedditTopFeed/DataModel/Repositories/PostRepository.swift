@@ -8,10 +8,10 @@
 
 import Foundation
 
-// SAVE TO DB IN FUTURE
+//TODO:- SAVE TO DB IN FUTURE
 class PostRepository: BaseRepository {
     
-    fileprivate let postsCountToLoad = 10
+    public let postsCountToLoad = 10
     fileprivate var data = [Post]()
     
     public func getTopPosts(completion: @escaping(Swift.Result<PostsList, RepositoryErrors>) -> Void, imageLoaded: @escaping(Int, Post) -> Void) {
@@ -27,6 +27,7 @@ class PostRepository: BaseRepository {
                 break
             case Result.failure(let error):
                 print(error.localizedDescription)
+                completion(Result.failure(.unavailable))
                 break
             }
         }
@@ -45,6 +46,7 @@ class PostRepository: BaseRepository {
                 break
             case Result.failure(let error):
                 print(error.localizedDescription)
+                completion(Result.failure(.unavailable))
                 break
             }
         }
