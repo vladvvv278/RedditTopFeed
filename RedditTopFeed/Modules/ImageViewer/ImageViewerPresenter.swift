@@ -23,7 +23,8 @@ public final class ImageViewerViewPresenter {
     }
     
     fileprivate func loadImage() {
-        NetworkManager.init().getImage(url: imageUrl) { (result) in
+        NetworkManager.init().getImage(url: imageUrl) { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case Result.success(let response):
                 DispatchQueue.main.async {

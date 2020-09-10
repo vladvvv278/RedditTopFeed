@@ -21,7 +21,8 @@ public final class FeedViewPresenter {
     fileprivate let repo = PostRepository()
     
     fileprivate func getTopPosts() {
-        repo.getTopPosts(completion: { (result) in
+        repo.getTopPosts(completion: { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case Result.success(let response):
                 self.newViewData(data: response.posts ?? [Post]())
@@ -37,7 +38,8 @@ public final class FeedViewPresenter {
     }
     
     fileprivate func getMorePosts() {
-        repo.getMorePosts(completion: { (result) in
+        repo.getMorePosts(completion: { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case Result.success(let response):
                 let startIndex = self.viewData.count

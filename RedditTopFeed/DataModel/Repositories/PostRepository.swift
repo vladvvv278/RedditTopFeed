@@ -15,7 +15,8 @@ class PostRepository: BaseRepository {
     fileprivate var data = [Post]()
     
     public func getTopPosts(completion: @escaping(Swift.Result<PostsList, RepositoryErrors>) -> Void, imageLoaded: @escaping(Int, Post) -> Void) {
-        networkManager.getTopPosts(after: nil, count: postsCountToLoad) { (result) in
+        networkManager.getTopPosts(after: nil, count: postsCountToLoad) { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case Result.success(let response):
                 self.data = response.posts ?? [Post]()
@@ -32,7 +33,8 @@ class PostRepository: BaseRepository {
     }
     
     public func getMorePosts(completion: @escaping(Swift.Result<PostsList, RepositoryErrors>) -> Void, imageLoaded: @escaping(Int, Post) -> Void) {
-        networkManager.getTopPosts(after: data.last?.name ?? "", count: postsCountToLoad) { (result) in
+        networkManager.getTopPosts(after: data.last?.name ?? "", count: postsCountToLoad) { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case Result.success(let response):
                 self.data.append(contentsOf: response.posts ?? [Post]())
@@ -64,7 +66,8 @@ class PostRepository: BaseRepository {
             guard let url = URL.init(string: item.previewUrl ?? "") else {
                 continue
             }
-            networkManager.getImage(url: url) { (result) in
+            networkManager.getImage(url: url) { [weak self] (result) in
+                guard let self = self else { return }
                 switch result {
                 case Result.success(let response):
                     item.previewData = response
