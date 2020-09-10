@@ -7,13 +7,25 @@
 //
 
 public protocol FeedViewInterface: class {
-    var presenter: FeedPresener? { get set }
+    var presenter: FeedPresenter? { get set }
     
     func update(view state: FeedViewState)
+    
+    func updateData()
+    
+    func updateRow(_ row: Int)
+    
+    func insertRows(startRow: Int, endRow: Int)
 }
 
-public protocol FeedPresener {
+public protocol FeedPresenter {
     var view: FeedViewInterface? { get set }
     
     func loadData()
+    
+    func getNumberOfRows() -> Int
+    
+    func getDataForRow(_ row: Int) -> FeedViewData?
+    
+    func checkReachedBottom(row: Int)
 }

@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import NetworkLayer
 
 class NetworkManager {
-    
-    static var shared = NetworkManager()
     
     fileprivate let apiManager: ApiManager = UrlSessionManager.init()
 
     func getTopPosts(after: String?, count: Int, completion: @escaping(Swift.Result<PostsList, ApiError>) -> Void) {
         apiManager.request(ApiRouter.getTopPosts(after: after, count: count)) { (result: Swift.Result<PostsList, ApiError>) in
+            completion(result)
+        }
+    }
+    
+    func getImage(url: URL, completion: @escaping(Swift.Result<Data, ApiError>) -> Void) {
+        apiManager.getImage(url: url) { (result) in
             completion(result)
         }
     }

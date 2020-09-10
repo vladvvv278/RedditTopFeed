@@ -8,10 +8,11 @@
 
 import Foundation
 
-protocol URLRequestConvertible {
+public protocol URLRequestConvertible {
     func asURLRequest() throws -> URLRequest
 }
 
-protocol ApiManager {
+public protocol ApiManager {
     func request<T: Decodable> (_ urlConvertible: URLRequestConvertible, completion: @escaping(Swift.Result<T, ApiError>) -> Void)
+    func getImage(url: URL, completion: @escaping(Swift.Result<Data, ApiError>) -> Void)
 }

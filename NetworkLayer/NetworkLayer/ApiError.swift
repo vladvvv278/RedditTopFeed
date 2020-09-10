@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ApiError: Error {
+public enum ApiError: Error {
     case unknown
     case invalidUrl
     case forbidden              //Status code 403

@@ -6,12 +6,23 @@
 //  Copyright © 2020 vladislav. All rights reserved.
 //
 
+import Foundation
+
 public struct FeedViewData {
-    
+    let title: String
+    let author: String
+    let date: String
+    let previewImage: Data?
+    let comments: String
 }
 
 public enum FeedViewState {
     case empty
     case loading
-    case loaded(data: FeedViewData)
+    case loaded
+}
+
+public enum PresenterLoadState {
+    case idle
+    case loading
 }

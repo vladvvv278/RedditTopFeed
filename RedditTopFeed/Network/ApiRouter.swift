@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NetworkLayer
 
 enum ApiRouter: URLRequestConvertible {
     
@@ -15,9 +16,9 @@ enum ApiRouter: URLRequestConvertible {
     //MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
         
-        let url = try NetworkConstants.baseUrl.asURL()
+        let url = try  NetworkConstants.baseUrl.appending(path).asURL()
         
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        var urlRequest = URLRequest(url: url)
         
         //Http method
         urlRequest.httpMethod = method.rawValue
@@ -43,12 +44,12 @@ enum ApiRouter: URLRequestConvertible {
     private var path: String {
         switch self {
         case .getTopPosts(after: let after, count: let count):
-            return "top.json"
-//            if after != nil {
-//                return "top.json?count=\(count),after=\(after ?? "")"
-//            } else {
-//                return "top.json?count=\(count)"
-//            }
+//            return "top.json"
+            if after != nil {
+                return "top.json?limit=\(count)&after=\(after ?? "")"
+            } else {
+                return "top.json?limit=\(count)"
+            }
         }
     }
     

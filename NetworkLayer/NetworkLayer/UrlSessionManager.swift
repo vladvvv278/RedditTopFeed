@@ -8,9 +8,12 @@
 
 import Foundation
 
-class UrlSessionManager: ApiManager {
+public class UrlSessionManager: ApiManager {
     
-    func request<T: Decodable> (_ urlConvertible: URLRequestConvertible, completion: @escaping(Swift.Result<T, ApiError>) -> Void) {
+    public init() {
+    }
+    
+    public func request<T: Decodable> (_ urlConvertible: URLRequestConvertible, completion: @escaping(Swift.Result<T, ApiError>) -> Void) {
         do {
             let request = try urlConvertible.asURLRequest()
             URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -41,5 +44,28 @@ class UrlSessionManager: ApiManager {
             completion(Result.failure(ApiError.invalidUrl))
         } catch {
         }
+    }
+    
+    public func getImage(url: URL, completion: @escaping(Swift.Result<Data, ApiError>) -> Void) {
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let imageData = data else {
+                if let httpResponse = response as? HTTPURLResponse {
+                    switch httpResponse.statusCode {
+                    case 403:
+                        completion(Result.failure(ApiError.forbidden))
+                    case 404:
+                        completion(Result.failure(ApiError.notFound))
+                    case 409:
+                        completion(Result.failure(ApiError.conflict))
+                    case 500:
+                        completion(Result.failure(ApiError.internalServerError))
+                    default:
+                        completion(Result.failure(ApiError.unknown))
+                    }
+                }
+                return
+            }
+            completion(Result.success(imageData))
+        }.resume()
     }
 }
