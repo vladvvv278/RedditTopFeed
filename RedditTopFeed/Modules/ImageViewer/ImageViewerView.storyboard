@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="ErY-rr-CfH">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hiu-2d-kui" customClass="ImageViewerView" customModule="RedditTopFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Hv-nt-nVc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6LR-PP-Ubk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="79v-EV-tuA">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGt-EO-muA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Image" id="QaK-On-P5A">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="G1y-bf-cOh">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="hiu-2d-kui" id="RfQ-wF-NIu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="ZnJ-Sw-Rk7">
+                                            <connections>
+                                                <action selector="shareAction:" destination="hiu-2d-kui" id="Fk2-Cb-qoQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UGt-EO-muA" firstAttribute="top" secondItem="zDv-0o-aSb" secondAttribute="top" id="3Rx-RU-7tS"/>
+                            <constraint firstItem="79v-EV-tuA" firstAttribute="centerX" secondItem="5Hv-nt-nVc" secondAttribute="centerX" id="7Zs-Wl-X0i"/>
+                            <constraint firstItem="UGt-EO-muA" firstAttribute="trailing" secondItem="zDv-0o-aSb" secondAttribute="trailing" id="E4R-VI-9eL"/>
+                            <constraint firstItem="zDv-0o-aSb" firstAttribute="trailing" secondItem="6LR-PP-Ubk" secondAttribute="trailing" id="Zpc-tF-z8F"/>
+                            <constraint firstItem="zDv-0o-aSb" firstAttribute="bottom" secondItem="6LR-PP-Ubk" secondAttribute="bottom" id="cJf-q6-gjZ"/>
+                            <constraint firstItem="6LR-PP-Ubk" firstAttribute="leading" secondItem="zDv-0o-aSb" secondAttribute="leading" id="kTq-vZ-Ykq"/>
+                            <constraint firstItem="6LR-PP-Ubk" firstAttribute="top" secondItem="UGt-EO-muA" secondAttribute="bottom" id="lqf-Rq-tQv"/>
+                            <constraint firstItem="79v-EV-tuA" firstAttribute="centerY" secondItem="5Hv-nt-nVc" secondAttribute="centerY" id="oMU-RY-fA2"/>
+                            <constraint firstItem="UGt-EO-muA" firstAttribute="leading" secondItem="zDv-0o-aSb" secondAttribute="leading" id="wCL-6v-4pO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zDv-0o-aSb"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="jh5-1g-KPy"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="79v-EV-tuA" id="Vdv-Co-PKo"/>
+                        <outlet property="imageView" destination="6LR-PP-Ubk" id="DcS-58-LKB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts0-s5-qqV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52.173913043478265" y="-4.0178571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
+</document>
