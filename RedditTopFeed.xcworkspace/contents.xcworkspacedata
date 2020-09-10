@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../NetworkLayer/NetworkLayer.xcodeproj">
+      location = "group:NetworkLayer/NetworkLayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "container:">
+      location = "container:RedditTopFeed.xcodeproj">
    </FileRef>
 </Workspace>

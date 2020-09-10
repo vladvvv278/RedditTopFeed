@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // SAVE TO DB IN FUTURE
 class PostRepository: BaseRepository {
     
@@ -47,6 +46,13 @@ class PostRepository: BaseRepository {
                 break
             }
         }
+    }
+    
+    public func getImageLinkFor(row: Int) -> URL? {
+        if row >= data.count {
+            return nil
+        }
+        return URL.init(string: data[row].fullImageUrl ?? "")
     }
     
     fileprivate func loadImages(imageLoaded: @escaping(Int, Post) -> Void) {

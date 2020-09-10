@@ -51,6 +51,10 @@ public final class FeedView: UIViewController {
         presenter?.loadData()
     }
     
+    @objc fileprivate func imageTapAction(_ sender: UITapGestureRecognizer) {
+        presenter?.imageTap(row: sender.view?.tag ?? 0)
+    }
+    
     fileprivate func setTableView(hidden: Bool) {
         if hidden {
             UIView.animate(withDuration: 0.3, animations: {
@@ -107,6 +111,12 @@ extension FeedView: FeedViewInterface {
         tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
+    
+    public func openImage(url: URL) {
+        let wireframe = ImageViewerWireframe.init(imageUrl: url)
+        navigationController?.presentModal(wireframe)
+    }
+    
 }
 
 extension FeedView: UITableViewDataSource {
@@ -133,6 +143,10 @@ extension FeedView: UITableViewDataSource {
             cell.previewImageView.image = nil
             cell.previewImageView.isHidden = true
         }
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(imageTapAction(_:)))
+        cell.previewImageView.tag = indexPath.row
+        cell.previewImageView.addGestureRecognizer(tapGesture)
+        cell.previewImageView.isUserInteractionEnabled = true
         return cell
     }
     

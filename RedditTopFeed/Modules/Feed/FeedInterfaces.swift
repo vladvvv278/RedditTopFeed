@@ -6,6 +6,8 @@
 //  Copyright © 2020 vladislav. All rights reserved.
 //
 
+import Foundation
+
 public protocol FeedViewInterface: class {
     var presenter: FeedPresenter? { get set }
     
@@ -16,6 +18,8 @@ public protocol FeedViewInterface: class {
     func updateRow(_ row: Int)
     
     func insertRows(startRow: Int, endRow: Int)
+    
+    func openImage(url: URL)
 }
 
 public protocol FeedPresenter {
@@ -28,4 +32,6 @@ public protocol FeedPresenter {
     func getDataForRow(_ row: Int) -> FeedViewData?
     
     func checkReachedBottom(row: Int)
+    
+    func imageTap(row: Int)
 }

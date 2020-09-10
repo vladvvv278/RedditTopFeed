@@ -16,6 +16,13 @@
 		865AC595250A3C08005FC68A /* NetworkLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 865AC593250A3C08005FC68A /* NetworkLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		865AC599250A3CA2005FC68A /* RepositoryErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC598250A3CA2005FC68A /* RepositoryErrors.swift */; };
 		865AC59F250A3F3E005FC68A /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC59E250A3F3E005FC68A /* BaseRepository.swift */; };
+		865AC5B3250A46B6005FC68A /* ImageViewerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865AC5AD250A46B6005FC68A /* ImageViewerView.storyboard */; };
+		865AC5B4250A46B6005FC68A /* ImageViewerInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5AE250A46B6005FC68A /* ImageViewerInterfaces.swift */; };
+		865AC5B5250A46B6005FC68A /* ImageViewerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5AF250A46B6005FC68A /* ImageViewerPresenter.swift */; };
+		865AC5B6250A46B6005FC68A /* ImageViewerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5B0250A46B6005FC68A /* ImageViewerModels.swift */; };
+		865AC5B7250A46B6005FC68A /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5B1250A46B6005FC68A /* ImageViewerView.swift */; };
+		865AC5B8250A46B6005FC68A /* ImageViewerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5B2250A46B6005FC68A /* ImageViewerWireframe.swift */; };
+		865AC5BA250A501A005FC68A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865AC5B9250A501A005FC68A /* StringExtensions.swift */; };
 		868A53392508FADF0053B87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A53382508FADF0053B87F /* AppDelegate.swift */; };
 		868A533B2508FADF0053B87F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868A533A2508FADF0053B87F /* SceneDelegate.swift */; };
 		868A53432508FADF0053B87F /* RedditTopFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 868A53412508FADF0053B87F /* RedditTopFeed.xcdatamodeld */; };
@@ -57,6 +64,13 @@
 		865AC593250A3C08005FC68A /* NetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865AC598250A3CA2005FC68A /* RepositoryErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryErrors.swift; sourceTree = "<group>"; };
 		865AC59E250A3F3E005FC68A /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		865AC5AD250A46B6005FC68A /* ImageViewerView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageViewerView.storyboard; sourceTree = "<group>"; };
+		865AC5AE250A46B6005FC68A /* ImageViewerInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerInterfaces.swift; sourceTree = "<group>"; };
+		865AC5AF250A46B6005FC68A /* ImageViewerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerPresenter.swift; sourceTree = "<group>"; };
+		865AC5B0250A46B6005FC68A /* ImageViewerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerModels.swift; sourceTree = "<group>"; };
+		865AC5B1250A46B6005FC68A /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
+		865AC5B2250A46B6005FC68A /* ImageViewerWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerWireframe.swift; sourceTree = "<group>"; };
+		865AC5B9250A501A005FC68A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		868A53352508FADF0053B87F /* RedditTopFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditTopFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		868A53382508FADF0053B87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		868A533A2508FADF0053B87F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				865AC56C250A3299005FC68A /* DateExtensions.swift */,
+				865AC5B9250A501A005FC68A /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -123,6 +138,19 @@
 				865AC593250A3C08005FC68A /* NetworkLayer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		865AC5AC250A46A0005FC68A /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				865AC5AD250A46B6005FC68A /* ImageViewerView.storyboard */,
+				865AC5AE250A46B6005FC68A /* ImageViewerInterfaces.swift */,
+				865AC5AF250A46B6005FC68A /* ImageViewerPresenter.swift */,
+				865AC5B0250A46B6005FC68A /* ImageViewerModels.swift */,
+				865AC5B1250A46B6005FC68A /* ImageViewerView.swift */,
+				865AC5B2250A46B6005FC68A /* ImageViewerWireframe.swift */,
+			);
+			path = ImageViewer;
 			sourceTree = "<group>";
 		};
 		868A532C2508FADE0053B87F = {
@@ -162,6 +190,7 @@
 		868A535B2508FAFE0053B87F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				865AC5AC250A46A0005FC68A /* ImageViewer */,
 				868A535C2508FB030053B87F /* Feed */,
 			);
 			path = Modules;
@@ -269,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				868A53482508FAE20053B87F /* LaunchScreen.storyboard in Resources */,
+				865AC5B3250A46B6005FC68A /* ImageViewerView.storyboard in Resources */,
 				868A53552508FAFA0053B87F /* FeedView.storyboard in Resources */,
 				868A53452508FAE20053B87F /* Assets.xcassets in Resources */,
 			);
@@ -281,20 +311,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865AC5BA250A501A005FC68A /* StringExtensions.swift in Sources */,
 				868A53592508FAFA0053B87F /* FeedView.swift in Sources */,
 				865AC570250A3805005FC68A /* PostRepository.swift in Sources */,
 				868A5366250902D30053B87F /* ApiRouter.swift in Sources */,
 				868A535A2508FAFA0053B87F /* FeedWireframe.swift in Sources */,
 				868A5364250902A00053B87F /* NetworkConstants.swift in Sources */,
 				865AC56A250A0BD7005FC68A /* PostCell.swift in Sources */,
+				865AC5B7250A46B6005FC68A /* ImageViewerView.swift in Sources */,
+				865AC5B5250A46B6005FC68A /* ImageViewerPresenter.swift in Sources */,
 				865AC56D250A3299005FC68A /* DateExtensions.swift in Sources */,
 				868A53582508FAFA0053B87F /* FeedModels.swift in Sources */,
+				865AC5B8250A46B6005FC68A /* ImageViewerWireframe.swift in Sources */,
 				868A53432508FADF0053B87F /* RedditTopFeed.xcdatamodeld in Sources */,
 				868A537225096C300053B87F /* NetworkManager.swift in Sources */,
 				868A53392508FADF0053B87F /* AppDelegate.swift in Sources */,
 				868A5370250967030053B87F /* PostsList.swift in Sources */,
 				865AC59F250A3F3E005FC68A /* BaseRepository.swift in Sources */,
+				865AC5B4250A46B6005FC68A /* ImageViewerInterfaces.swift in Sources */,
 				865AC599250A3CA2005FC68A /* RepositoryErrors.swift in Sources */,
+				865AC5B6250A46B6005FC68A /* ImageViewerModels.swift in Sources */,
 				868A53562508FAFA0053B87F /* FeedInterfaces.swift in Sources */,
 				868A53572508FAFA0053B87F /* FeedPresenter.swift in Sources */,
 				868A533B2508FADF0053B87F /* SceneDelegate.swift in Sources */,

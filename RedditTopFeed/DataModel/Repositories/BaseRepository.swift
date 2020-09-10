@@ -1,6 +1,6 @@
 //
 //  BaseRepository.swift
-//  NetworkLayer
+//  RedditTopFeed
 //
 //  Created by vladislav on 10.09.2020.
 //  Copyright © 2020 vladislav. All rights reserved.

@@ -15,7 +15,6 @@ enum ApiRouter: URLRequestConvertible {
     
     //MARK: - URLRequestConvertible
     func asURLRequest() throws -> URLRequest {
-        
         let url = try  NetworkConstants.baseUrl.appending(path).asURL()
         
         var urlRequest = URLRequest(url: url)

@@ -122,4 +122,11 @@ extension FeedViewPresenter: FeedPresenter {
             getMorePosts()
         }
     }
+    
+    public func imageTap(row: Int) {
+        guard let url = repo.getImageLinkFor(row: row), url.absoluteString.isImage() else {
+            return
+        }
+        view?.openImage(url: url)
+    }
 }
